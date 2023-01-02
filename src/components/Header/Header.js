@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  SearchOutlined,
-  HomeOutlined,
-  FileAddOutlined,
-} from '@ant-design/icons';
+import { HomeOutlined, FileAddOutlined } from '@ant-design/icons';
 import styles from './styles.module.scss';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function Header() {
   return (
@@ -27,10 +24,7 @@ export default function Header() {
               </Link>
             </li>
             <li className={styles['App-header__item']}>
-              <div className={styles['App-header__link']}>
-                <p className={styles['App-header__text']}>SearchBar</p>
-                <SearchOutlined className={styles['App-header__icon']} />
-              </div>
+              <SearchBar />
             </li>
           </ul>
         </nav>
