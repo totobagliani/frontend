@@ -5,22 +5,45 @@ $colorborder: #ebebeb;
 $black-dark: #1a1a1a;
 $gray-normal: #979797;
 $gray-cardproduct: #294a5a;
-
 // fonts
-
-$orderPaginationFont: 'Roboto';
-$searchResultsHeader: 'Roboto';
-$productCardFont: 'Roboto';
-$orderselectFont: 'Roboto';
-
+$orderPaginationFont: 'Belgika';
+$searchResultsHeader: 'Farro';
+$productCardFont: 'Khmer';
+$orderselectFont: 'Khbaph';
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   background-color: $white-oficial-background;
   color: $black-dark;
-  font-family: $orderselectFont;
+}
+
+// breackpoints
+
+// mobile.
+
+// Tablet
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .App {
+    background-color: red;
+  }
+}
+
+// Laptop
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .App {
+    background-color: greenyellow;
+  }
+}
+
+// Desktop
+
+@media only screen and (min-width: 1025px) {
+  .App {
+    background-color: orange;
+  }
 }
