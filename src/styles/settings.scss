@@ -1,0 +1,16 @@
+// Colors
+$white-background: #f2f6f9;
+$white-oficial-background: #fafafa;
+$colorborder: #ebebeb;
+$black-dark: #262626;
+$gray-normal: #979797;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: $gray-normal;
+}
