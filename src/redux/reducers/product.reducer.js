@@ -1,5 +1,12 @@
+export const PRODUCTS_STATE = {
+  PRODUCTS: 'products',
+  PRODUCT_ADDED: 'productAdded',
+  ALL_PRODUCTS: 'allProducts',
+  FILTERED_PRODUCTS: 'filteredProducts',
+};
+
 const initialState = {
-  products: [
+  [PRODUCTS_STATE.PRODUCTS]: [
     {
       id: '595857919392',
       name: 'Columna Inca',
