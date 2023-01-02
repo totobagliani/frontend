@@ -23,12 +23,14 @@ export default function Header() {
             <li className={styles['App-header__item']}>
               <Link to="/addproduct" className={styles['App-header__link']}>
                 <p className={styles['App-header__text']}>Add Product</p>
-                <FileAddOutlined lassName={styles['App-header__icon']} />
+                <FileAddOutlined className={styles['App-header__icon']} />
               </Link>
             </li>
             <li className={styles['App-header__item']}>
-              <p className={styles['App-header__text']}>SearchBar</p>
-              <SearchOutlined className={styles['App-header__icon']} />
+              <div className={styles['App-header__link']}>
+                <p className={styles['App-header__text']}>SearchBar</p>
+                <SearchOutlined className={styles['App-header__icon']} />
+              </div>
             </li>
           </ul>
         </nav>

@@ -1,3 +1,52 @@
+@import '../../styles/settings.scss';
+.title {
+  display: none;
+}
+
+.App-header {
+  border-bottom: 1px solid $gray-normal;
+  width: 100%;
+  height: 8vh;
+}
+.App-header__nav {
+  display: flex;
+  width: 100%;
+  padding: 0.5em 0.5em;
+}
+.App-header__list {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: flex-end;
+}
+.App-header__item {
+  display: flex;
+  margin-left: 0.5em;
+}
+.App-header__link {
+  text-decoration: none;
+  color: $black-dark;
+  display: flex;
+  align-items: center;
+}
+.App-header__text {
+  display: none;
+  text-transform: uppercase;
+}
 .App-header__icon {
-  color: red;
+  font-size: 1.2em;
+  margin-left: 0.2em;
+}
+
+@media only screen and (min-width: 481px) {
+  .App-header__list {
+    justify-content: space-evenly;
+  }
+  .App-header__text {
+    display: inline-block;
+  }
+  .App-header__icon {
+    font-size: 1.5em;
+    margin-left: 0.1em;
+  }
 }
