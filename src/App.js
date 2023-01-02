@@ -1,13 +1,10 @@
 import './App.css';
+import { AppRouter } from './routes/AppRouter';
 
 function App() {
-  // const data = await getAllProducts();
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Flat 101 Products</h1>
-      </header>
-      <div />
+      <AppRouter />
     </div>
   );
 }

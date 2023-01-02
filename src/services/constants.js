@@ -1,8 +1,10 @@
-export const SECTIONS = {
-  BAÑO: 'baño',
-  DORMITORIO: 'dormitorio',
-  COCINA: 'cocina',
-  SALON: 'salon',
-  TERRAZA: 'terraza',
-  COMEDOR: 'comedor',
-};
+export const sections = [
+  'baño',
+  'dormitorio',
+  'cocina',
+  'salon',
+  'terraza',
+  'comedor',
+];
+
+export const orderParams = ['precio', 'nombre', 'seccion'];
