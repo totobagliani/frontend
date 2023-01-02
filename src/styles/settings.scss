@@ -2,8 +2,16 @@
 $white-background: #f2f6f9;
 $white-oficial-background: #fafafa;
 $colorborder: #ebebeb;
-$black-dark: #262626;
+$black-dark: #1a1a1a;
 $gray-normal: #979797;
+$gray-cardproduct: #294a5a;
+
+// fonts
+
+$orderPaginationFont: 'Roboto';
+$searchResultsHeader: 'Roboto';
+$productCardFont: 'Roboto';
+$orderselectFont: 'Roboto';
 
 * {
   box-sizing: border-box;
@@ -12,5 +20,7 @@ $gray-normal: #979797;
 }
 
 html {
-  background-color: $gray-normal;
+  background-color: $white-oficial-background;
+  color: $black-dark;
+  font-family: $orderselectFont;
 }
