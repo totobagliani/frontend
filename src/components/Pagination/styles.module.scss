@@ -1,0 +1,36 @@
+@import '../../styles/settings.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 1px solid $gray-normal;
+  border-bottom: 1px solid $gray-normal;
+  margin: 1em 0;
+  padding: 1em 0;
+}
+
+.pagination__list {
+  list-style: none;
+  display: flex;
+  column-gap: 1em;
+  font-family: $orderPaginationFont;
+}
+.pagination__item {
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bolder;
+}
+
+.pagination__button {
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5em;
+  &:hover {
+    background-color: $gray-normal;
+  }
+}
