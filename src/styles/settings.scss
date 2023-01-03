@@ -6,11 +6,13 @@ $black-dark: #33393b;
 $gray-normal: #c7c6c6;
 $gray-light: #f9f9f9;
 $gray-cardproduct: #294a5a;
+
 // fonts
-$orderPaginationFont: 'Roboto ';
-$searchResultsHeader: 'Roboto';
-$productCardFont: 'Roboto';
-$orderselectFont: 'Roboto';
+
+$orderPaginationFont: 'Belgika';
+$searchResultsHeader: 'Farro';
+$productCardFont: 'Khmer';
+$orderselectFont: 'Khbaph';
 $headerPageFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -20,7 +22,16 @@ $borderprimary: 1px solid $gray-normal;
 * {
   box-sizing: border-box;
   margin: 0;
-  @@ -32,12 +35,68 @@ $headerPageFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+  padding: 0;
+}
+
+// Global classes (Design System)
+.App {
+  color: $black-dark;
+  font-family: $productCardFont;
+}
+
+.inputtext {
   outline: none;
   border: none;
   background-color: $gray-light;
@@ -92,25 +103,13 @@ $borderprimary: 1px solid $gray-normal;
 // mobile.
 
 // Tablet
-
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .App {
-    background-color: red;
-  }
 }
 
 // Laptop
-
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  // .App {
-  //   background-color: greenyellow;
-  // }
 }
 
 // Desktop
-
 @media only screen and (min-width: 1025px) {
-  // .App {
-  //   background-color: grey;
-  // }
 }

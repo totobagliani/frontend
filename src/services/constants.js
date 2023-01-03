@@ -1,11 +1,3 @@
-export const SECTIONSARR = [
-  'baño',
-  'dormitorio',
-  'cocina',
-  'salon',
-  'terraza',
-  'comedor',
-];
 export const SECTIONS = {
   BAÑO: 'baño',
   DORMITORIO: 'dormitorio',
@@ -15,11 +7,17 @@ export const SECTIONS = {
   COMEDOR: 'comedor',
 };
 
-// map. Object.values
-export const SORT_OPTIONSARR = ['precio', 'nombre', 'seccion'];
-
 export const SORT_OPTIONS = {
   PRECIO: 'precio',
   NOMBRE: 'nombre',
   SECCION: 'seccion',
+};
+
+export const ADD_PRODUCT_INITIAL_STATE = {
+  productName: '',
+  description: '',
+  imageURL: '',
+  isFavourite: '',
+  price: '',
+  section: '',
 };
