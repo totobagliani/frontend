@@ -9,7 +9,8 @@ export default function AddProduct() {
   const imgFile = null;
 
   return (
-    <div className="addProduct__container">
+    <div className={styles.addProduct__container}>
+      {' '}
       <h2 className={styles.addproduct_header}>Añadir Producto</h2>
       <form id="addProduct" className={styles.addProduct}>
         <fieldset className={styles.addproduct_group}>
