@@ -15,9 +15,12 @@
 }
 
 .filterbar__select {
+  outline-style: none;
   border: none;
   width: 50%;
   padding: 1em;
   font-family: $orderPaginationFont;
+  font-size: 1.3em;
   font-weight: bold;
+  line-height: 32px;
 }

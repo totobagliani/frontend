@@ -20,7 +20,11 @@ export default function CustomSelect({ selectProps }) {
         {selectProps.selectTitle}
       </option>
       {selectProps.optionValues.map((value) => (
-        <option key={`${value}-id`} value={value}>
+        <option
+          key={`${value}-id`}
+          value={value}
+          className={selectProps.classOption}
+        >
           {value}
         </option>
       ))}

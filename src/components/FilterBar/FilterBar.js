@@ -17,6 +17,7 @@ export default function FilterBar() {
             selectTitle: ' Productos (53)',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
+            classOption: styles.filterbar__option,
             optionValues: sections,
           }}
         />
@@ -27,6 +28,7 @@ export default function FilterBar() {
             selectTitle: 'Ordenar Por',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
+            classOption: styles.filterbar__option,
             optionValues: sorts,
           }}
         />

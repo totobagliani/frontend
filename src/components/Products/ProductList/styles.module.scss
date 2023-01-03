@@ -7,3 +7,9 @@
   grid-auto-rows: auto;
   list-style: none;
 }
+
+@media only screen and (min-width: 1024px) {
+  .productlist__list {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+}
