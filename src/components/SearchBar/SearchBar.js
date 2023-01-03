@@ -9,7 +9,7 @@ export default function SearchBar() {
         <input
           className={styles.search__input}
           type="search"
-          placeholder="Buscar"
+          placeholder="Search"
           id="search-box"
           name="searchInput"
         />
