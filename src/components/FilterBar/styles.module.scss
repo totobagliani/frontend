@@ -1,1 +1,23 @@
 @import '../../styles/settings.scss';
+
+.filterbar {
+  background-color: antiquewhite;
+}
+.filterbar__form {
+  display: flex;
+  justify-content: center;
+
+  border-bottom: 1px solid $gray-normal;
+}
+
+.filterbar__select:first-child {
+  border-right: 1px solid $gray-normal;
+}
+
+.filterbar__select {
+  border: none;
+  width: 50%;
+  padding: 1em;
+  font-family: $orderPaginationFont;
+  font-weight: bold;
+}

@@ -9,21 +9,21 @@ const initialState = {
   [PRODUCTS_STATE.PRODUCTS]: [
     {
       id: '595857919392',
-      name: 'Columna Inca',
+      productName: 'Columna Inca',
       description:
         'Complemento ideal para cuarto de baño por su capacidad de almacenaje',
-      image: 'https://media.bahag.cloud/m/1280235/12.jpg',
+      imageURL: 'https://media.bahag.cloud/m/1280235/12.jpg',
       price: 79,
       section: 'baño',
     },
     {
       id: '595857919392',
-      name: 'Columna Inca',
+      productName: 'Columna Inca',
       description:
         'Complemento ideal para cuarto de baño por su capacidad de almacenaje',
-      image: 'https://media.bahag.cloud/m/1280235/12.jpg',
-      price: 79,
-      section: 'baño',
+      imageURL: 'https://media.bahag.cloud/m/1280235/12.jpg',
+      price: 90,
+      section: 'habitaciones',
     },
   ],
 };

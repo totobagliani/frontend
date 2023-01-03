@@ -9,14 +9,32 @@ export default function FilterBar() {
   return (
     <div className={styles.filterbar}>
       <form className={styles.filterbar__form}>
-        <select name="product-section" className={styles.filterbar__form}>
+        <select
+          name="product-section"
+          className={styles.filterbar__select}
+          defaultValue=""
+        >
+          <option value="" disabled className={styles.filterbar__optiontitle}>
+            Productos (53)
+          </option>
           {sections.map((section) => (
-            <option key={`${section}-id`} value={section}>
+            <option
+              key={`${section}-id`}
+              value={section}
+              className={styles.filterbar__option}
+            >
               {section}
             </option>
           ))}
         </select>
-        <select name="order" className={styles.filterbar__form}>
+        <select
+          name="order"
+          className={styles.filterbar__select}
+          defaultValue=""
+        >
+          <option value="" disabled className={styles.filterbar__optiontitle}>
+            Ordenar Por
+          </option>
           {sorts.map((criterium) => (
             <option key={`${criterium}-id`} value={criterium}>
               {criterium}

@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function ProductCard() {
+export default function ProductCard({ product }) {
   return (
     <div>
-      <h1>ProductCard</h1>
+      <p>
+        {product.productName} {product.price}
+      </p>
     </div>
   );
 }
