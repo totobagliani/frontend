@@ -1,11 +1,13 @@
 @import '../../styles/settings.scss';
-
 .addProduct__container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.addProduct {
+  padding: 0.5em 1em;
+}
 .addproduct_header {
   font-family: $headerPageFont;
   text-align: center;
@@ -14,8 +16,35 @@
 
 .addproduct_group {
   border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: $borderprimary;
+}
+.addproduct__text {
+  width: 100%;
+  margin: 0.3em 0;
+  padding-left: 1em;
+}
+.addproduct__select {
+  border: none;
+  border-top: $borderprimary;
+  width: 100%;
+  padding: 1em;
+  font-family: $orderPaginationFont;
+  font-weight: bold;
 }
 
 .imgform__image {
   width: 100%;
+}
+
+#file-selector-toimage {
+  display: none;
+}
+
+.addproduct__buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
 }

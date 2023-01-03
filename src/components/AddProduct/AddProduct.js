@@ -11,20 +11,20 @@ export default function AddProduct() {
   return (
     <div className="addProduct__container">
       <h2 className={styles.addproduct_header}>Añadir Producto</h2>
-      <form className="addProduct">
+      <form id="addProduct" className={styles.addProduct}>
         <fieldset className={styles.addproduct_group}>
           <input
             type="text"
-            className="inputtext"
+            className={`${styles.addproduct__text} inputtext`}
             required
             placeholder="Añade un nombre"
+            maxLength={20}
           />
           <input
             type="text"
-            className="inputtext"
+            className={`${styles.addproduct__text} inputtext`}
             required
             placeholder="Escriba una pequeña descripción"
-            size="60"
             maxLength={60}
           />
           <CustomSelect
@@ -47,12 +47,16 @@ export default function AddProduct() {
                 accept="image/png, .jpeg, .jpg, image/gif"
               />
             ) : (
-              <img className="form__image" alt="imagen a subir" src={imgFile} />
+              <img
+                className={styles.imgform__image}
+                alt="imagen a subir"
+                src={imgFile}
+              />
             )}
           </div>
           <input
-            form="addpost-form"
-            id="file-selector-toimage"
+            form="addProduct"
+            id={styles['file-selector-toimage']}
             type="file"
             name="imageURL"
             placeholder="sube una imagen"
@@ -64,16 +68,21 @@ export default function AddProduct() {
         <fieldset className={styles.addproduct_group}>
           <input
             type="number"
-            className="inputtext"
+            name="price"
+            className={`${styles.addproduct__text} inputtext`}
             required
             placeholder="Indica el precio "
           />
           <label htmlFor="isFAvourite" className="formLabel">
             Favorito:
+            <input
+              type="checkbox"
+              name="isFAvourite"
+              className="checkboxForm"
+            />
           </label>
-          <input type="checkbox" name="isFAvourite" className="checkboxForm" />
         </fieldset>
-        <div className="form-footer">
+        <div className={styles.addproduct__buttons}>
           <button className="btn btn--cancel" type="button">
             Cancelar
           </button>
