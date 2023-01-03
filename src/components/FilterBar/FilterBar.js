@@ -11,24 +11,15 @@ export default function FilterBar() {
   return (
     <div className={styles.filterbar}>
       <form className={styles.filterbar__form}>
-        <select
-          name="product-section"
-          className={styles.filterbar__select}
-          defaultValue=""
-        >
-          <option value="" disabled className={styles.filterbar__optiontitle}>
-            Productos (53)
-          </option>
-          {sections.map((section) => (
-            <option
-              key={`${section}-id`}
-              value={section}
-              className={styles.filterbar__option}
-            >
-              {section}
-            </option>
-          ))}
-        </select>
+        <CustomSelect
+          selectProps={{
+            selectName: 'product-section',
+            selectTitle: ' Productos (53)',
+            classSelect: styles.filterbar__select,
+            classTitle: styles.filterbar__optiontitle,
+            optionValues: sections,
+          }}
+        />
 
         <CustomSelect
           selectProps={{
@@ -36,20 +27,9 @@ export default function FilterBar() {
             selectTitle: 'Ordenar Por',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
-
             optionValues: sorts,
           }}
         />
-        {/* <select name="order" className={styles.filterbar__select} defaultValue="">
-          <option value="" disabled className={styles.filterbar__optiontitle}>
-            Ordenar Por
-          </option>
-          {sorts.map((criterium) => (
-            <option key={`${criterium}-id`} value={criterium}>
-              {criterium}
-            </option>
-          ))}
-        </select> */}
       </form>
     </div>
   );
