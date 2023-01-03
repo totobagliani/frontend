@@ -1,4 +1,4 @@
-export const SECTIONS = [
+export const SECTIONSARR = [
   'baño',
   'dormitorio',
   'cocina',
@@ -6,7 +6,7 @@ export const SECTIONS = [
   'terraza',
   'comedor',
 ];
-export const SECTIONSOBJ = {
+export const SECTIONS = {
   BAÑO: 'baño',
   DORMITORIO: 'dormitorio',
   COCINA: 'cocina',
@@ -16,4 +16,10 @@ export const SECTIONSOBJ = {
 };
 
 // map. Object.values
-export const SORT_OPTIONS = ['precio', 'nombre', 'seccion'];
+export const SORT_OPTIONSARR = ['precio', 'nombre', 'seccion'];
+
+export const SORT_OPTIONS = {
+  PRECIO: 'precio',
+  NOMBRE: 'nombre',
+  SECCION: 'seccion',
+};
