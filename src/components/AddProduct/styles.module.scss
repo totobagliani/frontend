@@ -1,1 +1,21 @@
 @import '../../styles/settings.scss';
+
+.addProduct__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addproduct_header {
+  font-family: $headerPageFont;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.addproduct_group {
+  border: none;
+}
+
+.imgform__image {
+  width: 100%;
+}

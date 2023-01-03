@@ -17,10 +17,11 @@ export default function ProductCard({ product }) {
           <HeartOutlined className={styles.productCard__icon} />
         )}
       </div>
+      <div className={styles.productCard__summary}>
+        <p className={styles.productCard__name}>{product.productName}</p>
 
-      <p className={styles.productCard__name}>{product.productName}</p>
-
-      <p className={styles.productCard__price}>{product.price} €</p>
+        <p className={styles.productCard__price}>{product.price} €</p>
+      </div>
     </article>
   );
 }

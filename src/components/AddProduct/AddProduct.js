@@ -24,6 +24,8 @@ export default function AddProduct() {
             className="inputtext"
             required
             placeholder="Escriba una pequeña descripción"
+            size="60"
+            maxLength={60}
           />
           <CustomSelect
             selectProps={{
