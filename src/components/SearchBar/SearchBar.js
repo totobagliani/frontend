@@ -7,7 +7,7 @@ export default function SearchBar() {
     <div className={styles.search__container}>
       <form className={styles.search__form}>
         <input
-          className={styles.search__input}
+          className="inputtext"
           type="search"
           placeholder="Search"
           id="search-box"

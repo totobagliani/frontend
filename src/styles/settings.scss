@@ -16,10 +16,20 @@ $orderselectFont: 'Khbaph';
   margin: 0;
   padding: 0;
 }
-// .App {
-//   color: $black-dark;
-//   font-family: $productCardFont;
-// }
+.App {
+  color: $black-dark;
+  font-family: $productCardFont;
+}
+
+.inputtext {
+  outline: none;
+  border: none;
+  background-color: $gray-light;
+  font-size: 0.6em;
+  padding: 0.4em;
+  margin: 0%;
+  box-sizing: border-box;
+}
 
 // breackpoints
 
