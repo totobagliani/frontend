@@ -1,4 +1,8 @@
 @import '../../../styles/settings.scss';
 
-.products-container {
+.productlist__list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
 }

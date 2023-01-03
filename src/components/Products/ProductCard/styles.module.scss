@@ -1,0 +1,32 @@
+@import '../../../styles/settings.scss';
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid bisque;
+  align-items: center;
+}
+.productCard__imgcontainer {
+  position: relative;
+}
+.ProductCard__image {
+  width: 40vw;
+  height: 40vw;
+  object-fit: fill;
+}
+
+.productCard__icon {
+  background-color: aliceblue;
+  padding: 0.3em;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+}
+.productCard__name {
+  font-family: $productCardFont;
+}
+.productCard__price {
+  font-family: $searchResultsHeader;
+  font-weight: lighter;
+}

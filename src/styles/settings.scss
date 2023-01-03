@@ -16,10 +16,10 @@ $orderselectFont: 'Khbaph';
   margin: 0;
   padding: 0;
 }
-.App {
-  color: $black-dark;
-  font-family: $productCardFont;
-}
+// .App {
+//   color: $black-dark;
+//   font-family: $productCardFont;
+// }
 
 // breackpoints
 
@@ -36,15 +36,15 @@ $orderselectFont: 'Khbaph';
 // Laptop
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .App {
-    background-color: greenyellow;
-  }
+  // .App {
+  //   background-color: greenyellow;
+  // }
 }
 
 // Desktop
 
 @media only screen and (min-width: 1025px) {
-  .App {
-    background-color: grey;
-  }
+  // .App {
+  //   background-color: grey;
+  // }
 }

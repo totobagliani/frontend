@@ -7,14 +7,14 @@ import styles from './styles.module.scss';
 export default function ProductList() {
   const products = useSelectByKey(PRODUCTS_STATE.PRODUCTS);
   return (
-    <div className={styles.productlist__container}>
+    <section className={styles.productlist__container}>
       <ul className={styles.productlist__list}>
         {products.map((product) => (
-          <li key={product.key}>
-            <ProductCard product={product} />
+          <li key={`${product.id}-li`}>
+            <ProductCard key={`${product.id}-pc`} product={product} />
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
