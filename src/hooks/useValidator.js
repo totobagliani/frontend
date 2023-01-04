@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';

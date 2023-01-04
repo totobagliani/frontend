@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';

@@ -16,24 +16,14 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
-    "trailing-comma": [
-      true,
-      {
-        "singleline": "never",
-        "multiline": {
-          "objects": "ignore",
-          "arrays": "always",
-          "functions": "never",
-          "typeLiterals": "ignore"
-        }
-      }
-    ],
+    "comma-dangle": [2, "always-multiline"],
     "object-curly-newline": "off",
     "import/prefer-default-export": "off",
     "import/no-named-as-default": "off",
     "default-param-last": "off",
     "react/prop-types": "off",
     "consistent-return": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }
