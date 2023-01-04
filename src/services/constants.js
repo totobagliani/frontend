@@ -4,13 +4,13 @@ export const SECTIONS = {
   COCINA: 'cocina',
   SALON: 'salon',
   TERRAZA: 'terraza',
-  COMEDOR: 'comedor',
+  COMEDOR: 'comedor'
 };
 
 export const SORT_OPTIONS = {
   PRECIO: 'precio',
   NOMBRE: 'nombre',
-  SECCION: 'seccion',
+  SECCION: 'seccion'
 };
 
 export const ADD_PRODUCT_INITIAL_STATE = {
@@ -19,7 +19,9 @@ export const ADD_PRODUCT_INITIAL_STATE = {
   imageURL: '',
   isFavourite: false,
   price: '',
-  section: '',
+  section: ''
 };
+
+export const ELEMENTS_PER_PAGE = 6;
 
 export const UPLOADPRESET = 'flat101';
