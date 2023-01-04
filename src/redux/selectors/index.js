@@ -12,3 +12,6 @@ export const selectProductsByPage = (key, startPosition, endPosition) =>
         item.indexOf(index) >= startPosition + 1 && index <= endPosition - 1
     )
   );
+
+export const selectUiByKey = (key) =>
+  useSelector((state) => state?.ui[key] || '');
