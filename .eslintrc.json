@@ -16,7 +16,18 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
-    "comma-dangle": [2, "always-multiline"],
+    "trailing-comma": [
+      true,
+      {
+        "singleline": "never",
+        "multiline": {
+          "objects": "ignore",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        }
+      }
+    ],
     "object-curly-newline": "off",
     "import/prefer-default-export": "off",
     "import/no-named-as-default": "off",

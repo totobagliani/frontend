@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable comma-dangle */
 import React from 'react';
 import ReactDOM from 'react-dom/client';

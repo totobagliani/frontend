@@ -17,7 +17,7 @@ export const ADD_PRODUCT_INITIAL_STATE = {
   productName: '',
   description: '',
   imageURL: '',
-  isFavourite: '',
+  isFavourite: false,
   price: '',
   section: '',
 };

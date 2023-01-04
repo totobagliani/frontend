@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';
@@ -6,6 +5,7 @@ import { useForm } from '../../hooks/useForm';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
+// import { useValidationForm } from '../../hooks/useValidator';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
@@ -13,31 +13,70 @@ export default function AddProduct() {
   const [formAddProductValues, handleProductValueInputChange] = useForm(
     ADD_PRODUCT_INITIAL_STATE
   );
-  const [favov, setFavor] = useState(false);
+  const [favourite, setFavourite] = useState(false);
 
   const fileSelectorRef = useRef();
 
-  const [imgFile, handleFileChange] = useImgData(null);
+  const [imgFile, handleFileChange] = useImgData(false);
+
+  const [formError, setFormError] = useState({
+    productName: false,
+    description: false,
+    price: false,
+    section: false,
+  });
+  // eslint-disable-next-line no-unused-vars
+  const errorEntries = Object.entries(formError).filter(
+    (item) => item[1] === true
+  );
+
+  // eslint-disable-next-line max-len
+  /*   const [formError, handleformErrorChange] = useValidationForm({ ...ADD_PRODUCT_INITIAL_STATE }, [
+    'isFavourite'
+  ]);
+ */
+
+  const { productName, description, price, section } = formAddProductValues;
 
   const handleFavourite = () => {
-    setFavor(!favov);
+    setFavourite(!favourite);
   };
 
   const handleClickPicture = () => {
     fileSelectorRef.current.click();
   };
 
-  const { productName, description, price, section } = formAddProductValues;
+  const handleAddProductSubmit = (e) => {
+    e.preventDefault();
+    // Validacion de los elementos.
+    const formFields = Object.entries(formAddProductValues);
+    formFields.forEach((field) => {
+      if (!field[1]) {
+        // eslint-disable-next-line no-param-reassign
+        field[1] = true;
+      } else {
+        // eslint-disable-next-line no-param-reassign
+        field[1] = false;
+      }
+    });
+    const objFields = Object.fromEntries(formFields);
+
+    setFormError(objFields);
+    console.error(formError);
+  };
 
   return (
     <div className={styles.addProduct__container}>
       <h2 className={styles.addproduct_header}>Añadir Producto</h2>
-      <form id="addProduct" className={styles.addProduct}>
+      <form
+        id="addProduct-form"
+        className={styles.addProduct}
+        onSubmit={handleAddProductSubmit}
+      >
         <fieldset className={styles.addproduct_group}>
           <input
             type="text"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Añade un nombre"
             maxLength={20}
             name="productName"
@@ -47,7 +86,6 @@ export default function AddProduct() {
           <input
             type="text"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Escriba una pequeña descripción"
             maxLength={60}
             name="description"
@@ -63,13 +101,14 @@ export default function AddProduct() {
               classTitle: styles.addproduct__optiontitle,
               optionValues: sections,
             }}
+            name="section"
             value={section}
-            onChange={handleProductValueInputChange}
+            handleChange={handleProductValueInputChange}
           />
         </fieldset>
         <fieldset className={styles.addproduct_group}>
           <div className="imgForm__container">
-            {imgFile === null ? (
+            {!imgFile ? (
               <img
                 className={styles.imgform__image}
                 src={pathimg}
@@ -85,7 +124,7 @@ export default function AddProduct() {
             )}
           </div>
           <input
-            form="addProduct"
+            form="addProduct-form"
             id="file-selector-toimage"
             ref={fileSelectorRef}
             className={styles['file-selector-toimage']}
@@ -95,7 +134,7 @@ export default function AddProduct() {
             onChange={handleFileChange}
           />
           <button
-            form="addpost-form"
+            form="addProduct-form"
             className="btn btn--accept"
             type="button"
             onClick={handleClickPicture}
@@ -106,9 +145,9 @@ export default function AddProduct() {
         <fieldset className={styles.addproduct_group}>
           <input
             type="number"
+            step=".01"
             name="price"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Indica el precio "
             value={price}
             onChange={handleProductValueInputChange}
@@ -118,10 +157,10 @@ export default function AddProduct() {
             Favorito:
             <input
               type="checkbox"
-              name="isFAvourite"
+              name="favourite"
               className="checkboxForm"
-              value={favov}
-              onClick={handleFavourite}
+              value={favourite}
+              onChange={handleFavourite}
             />
           </label>
         </fieldset>
@@ -129,11 +168,32 @@ export default function AddProduct() {
           <button className="btn btn--cancel" type="button">
             Cancelar
           </button>
-          <button form="addpost-form" className="btn btn--accept" type="submit">
+          <button
+            form="addProduct-form"
+            className="btn btn--accept"
+            type="submit"
+          >
             Publicar
           </button>
         </div>
       </form>
+      {errorEntries.length !== 0 && (
+        <div className="errors">
+          <p className="errors__title">
+            Error de validacion para los siguientes campos:{' '}
+          </p>
+          {imgFile === null && (
+            <p className="errors__item">Solo se puede postear con una imagen</p>
+          )}
+          <ul className="errors__list">
+            {errorEntries.map((errorEntry) => (
+              <li key={errorEntry} className="errors__item">
+                {errorEntry[0]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
