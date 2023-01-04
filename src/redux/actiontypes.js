@@ -5,5 +5,6 @@ export const types = {
   productSetProductAdded: '@product/SetAdded',
   uiSetCurrentPage: '@UI/SetCurrentPage',
   uiIncrementedPage: '@UI/IncrementedPage',
-  uiDecrementedPage: '@UI/DecrementedPage'
+  uiDecrementedPage: '@UI/DecrementedPage',
+  uiSetFilter: '@UI/SetFilter'
 };

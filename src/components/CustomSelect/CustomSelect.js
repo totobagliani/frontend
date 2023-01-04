@@ -1,9 +1,6 @@
 import React from 'react';
 
-export default function CustomSelect({
-  selectProps,
-  handleChange = () => {},
-}) {
+export default function CustomSelect({ selectProps, handleChange = () => {} }) {
   /*  const selectProp = {
     selectName: 'A name',
     classSelect: 'choose',

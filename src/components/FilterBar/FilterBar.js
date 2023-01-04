@@ -1,12 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { SECTIONS, SORT_OPTIONS } from '../../services/constants';
 import CustomSelect from '../CustomSelect/CustomSelect';
+import { setFilter } from '../../redux/actions/ui.action';
 
 export default function FilterBar() {
   // en los selects el evento es onchange
   const sections = Object.values(SECTIONS);
   const sorts = Object.values(SORT_OPTIONS);
+
+  const dispatch = useDispatch();
+
+  const handleSetFilter = (e) => {
+    console.log(e.target.value);
+    dispatch(setFilter(e.target.value));
+  };
 
   return (
     <div className={styles.filterbar}>
@@ -18,8 +27,9 @@ export default function FilterBar() {
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
             classOption: styles.filterbar__option,
-            optionValues: sections,
+            optionValues: sections
           }}
+          handleChange={handleSetFilter}
         />
 
         <CustomSelect
@@ -29,7 +39,7 @@ export default function FilterBar() {
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
             classOption: styles.filterbar__option,
-            optionValues: sorts,
+            optionValues: sorts
           }}
         />
       </form>

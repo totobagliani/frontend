@@ -19,6 +19,10 @@ export const selectProductsByPage = (key, startPosition, endPosition) =>
 export const selectCurrentPage = () =>
   useSelector((state) => state?.ui[UI_STATE.CURRENT_PAGE] || 1);
 
+export const selectCurrentFilter = () => {
+  useSelector((state) => state?.ui[UI_STATE.CURRENT_FILTER] || '');
+};
+
 export const selectProductsByCurrentPage = () => {
   const products = selectProductsByKey(PRODUCTS_STATE.PRODUCTS);
   const currentPage = selectCurrentPage(UI_STATE.CURRENT_PAGE);
