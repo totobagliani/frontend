@@ -11,8 +11,12 @@ import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { PRODUCTS_STATE } from '../../redux/reducers/product.reducer';
 import { selectProductsByKey, selectCurrentPage } from '../../redux/selectors';
-import { ELEMENTS_PER_PAGE } from '../../services/constants';
-import { setCurrentPage } from '../../redux/actions/ui.action';
+import { ELEMENTS_PER_PAGE, MINIMUM_PAGE } from '../../services/constants';
+import {
+  nextPage,
+  previousPage,
+  setCurrentPage
+} from '../../redux/actions/ui.action';
 
 export default function Pagination() {
   const products = selectProductsByKey(PRODUCTS_STATE.PRODUCTS);
@@ -46,21 +50,36 @@ export default function Pagination() {
   };
 
   const handlePreviousClick = () => {
-    console.log('pagina anterior');
+    dispatch(previousPage(currentPage));
   };
 
   const handleNextClick = () => {
-    console.log('pagina siguiente');
+    dispatch(nextPage(currentPage));
   };
 
+  const isDisabled = (threshold) => threshold === currentPage;
+
+  const getButtonClassName = (disabled) => {
+    const className = disabled
+      ? `${styles.pagination__button} ${styles['pagination__button--disabled']}`
+      : `${styles.pagination__button}`;
+    return className;
+  };
+
+  const prevDisabled = isDisabled(MINIMUM_PAGE);
+  const nextDisabled = isDisabled(totalPaginationElements);
+
+  const prevButtonClassName = getButtonClassName(prevDisabled);
+  const nextButtonClassName = getButtonClassName(nextDisabled);
   return (
     <div className={styles.pagination}>
       <button
         type="button"
         className={styles.pagination__button}
         onClick={handlePreviousClick}
+        disabled={prevDisabled}
       >
-        <ArrowLeftOutlined className={styles.pagination__icon} />
+        <ArrowLeftOutlined className={prevButtonClassName} />
       </button>
       <ul id="pagination" className={styles.pagination__list}>
         {paginationElements.length !== 0
@@ -79,8 +98,9 @@ export default function Pagination() {
         type="button"
         className={styles.pagination__button}
         onClick={handleNextClick}
+        disabled={nextDisabled}
       >
-        <ArrowRightOutlined className={styles.pagination__icon} />
+        <ArrowRightOutlined className={nextButtonClassName} />
       </button>
     </div>
   );

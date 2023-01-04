@@ -16,6 +16,16 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         [UI_STATE.CURRENT_PAGE]: action.payload
       };
+    case types.uiIncrementedPage:
+      return {
+        ...state,
+        [UI_STATE.CURRENT_PAGE]: action.payload
+      };
+    case types.uiDecrementedPage:
+      return {
+        ...state,
+        [UI_STATE.CURRENT_PAGE]: action.payload
+      };
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 export const SECTIONS = {
   BAÑO: 'baño',
   DORMITORIO: 'dormitorio',
@@ -23,5 +24,6 @@ export const ADD_PRODUCT_INITIAL_STATE = {
 };
 
 export const ELEMENTS_PER_PAGE = 6;
+export const MINIMUM_PAGE = 1;
 
 export const UPLOADPRESET = 'flat101';
