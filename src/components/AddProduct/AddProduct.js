@@ -182,8 +182,10 @@ export default function AddProduct() {
           <p className="errors__title">
             Error de validacion para los siguientes campos:{' '}
           </p>
-          {imgFile === null && (
-            <p className="errors__item">Solo se puede postear con una imagen</p>
+          {imgFile === false && (
+            <p className="errors__item">
+              Solo se puede añadir un producto con una imagen
+            </p>
           )}
           <ul className="errors__list">
             {errorEntries.map((errorEntry) => (
