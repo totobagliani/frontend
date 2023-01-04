@@ -1,6 +1,9 @@
 import React from 'react';
 
-export default function CustomSelect({ selectProps }) {
+export default function CustomSelect({
+  selectProps,
+  handleProductValueInputChange = () => {},
+}) {
   /*  const selectProp = {
     selectName: 'A name',
     classSelect: 'choose',
@@ -8,13 +11,14 @@ export default function CustomSelect({ selectProps }) {
     classTitle: 'Classname Title',
     classOption: 'classname for the opcion"
     optionValues: []
-  }; PropTypes */
+  };   PropTypes */
 
   return (
     <select
       name={selectProps.selectName}
       className={selectProps.classSelect}
       defaultValue=""
+      onChange={handleProductValueInputChange}
     >
       <option value="" disabled className={selectProps.classTitle}>
         {selectProps.selectTitle}

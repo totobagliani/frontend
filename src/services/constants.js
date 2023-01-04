@@ -21,3 +21,5 @@ export const ADD_PRODUCT_INITIAL_STATE = {
   price: '',
   section: '',
 };
+
+export const UPLOADPRESET = 'flat101';
