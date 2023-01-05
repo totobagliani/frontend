@@ -36,3 +36,10 @@ export const setOrder = (orderValue) => {
 export const resetFilter = () => ({ type: types.uiResetFilter });
 
 export const resetOrder = () => ({ type: types.uiResetOrder });
+
+export const showResults = () => ({
+  type: types.uiShowResults
+});
+export const hiddenResults = () => ({
+  type: types.uiHiddenResults
+});

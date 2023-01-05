@@ -4,13 +4,15 @@ import { types } from '../actiontypes';
 export const UI_STATE = {
   CURRENT_PAGE: 'currentPage',
   CURRENT_FILTER: 'currentFilter',
-  CURRENT_ORDER: 'currentOrder'
+  CURRENT_ORDER: 'currentOrder',
+  RESULTS_VISIBLE: 'resultsVisible'
 };
 
 const initialState = {
   [UI_STATE.CURRENT_PAGE]: 1,
   [UI_STATE.CURRENT_FILTER]: '',
-  [UI_STATE.CURRENT_ORDER]: ''
+  [UI_STATE.CURRENT_ORDER]: '',
+  [UI_STATE.RESULTS_VISIBLE]: false
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -52,6 +54,18 @@ export const uiReducer = (state = initialState, action) => {
         [UI_STATE.CURRENT_ORDER]: ''
       };
 
+    case types.uiShowResults: {
+      return {
+        ...state,
+        [UI_STATE.RESULTS_VISIBLE]: true
+      };
+    }
+    case types.uiHiddenResults: {
+      return {
+        ...state,
+        [UI_STATE.RESULTS_VISIBLE]: false
+      };
+    }
     default:
       return state;
   }

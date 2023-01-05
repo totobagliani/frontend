@@ -39,6 +39,9 @@ export const selectCurrentFilter = () =>
 export const selectCurrentOrder = () =>
   useSelector((state) => state?.ui[UI_STATE.CURRENT_ORDER] || '');
 
+export const selectVisibilityResults = () =>
+  useSelector((state) => state.ui[UI_STATE.RESULTS_VISIBLE]);
+
 export const selectProductsByCurrentPage = () => {
   let products = selectProductsByKey(PRODUCTS_STATE.PRODUCTS);
   const currentPage = selectCurrentPage();

@@ -5,7 +5,11 @@ import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { useForm } from '../../hooks/useForm';
 import { startSearchProducts } from '../../redux/actions/products.action';
-import { resetFilter, resetOrder } from '../../redux/actions/ui.action';
+import {
+  resetFilter,
+  resetOrder,
+  showResults
+} from '../../redux/actions/ui.action';
 
 export default function SearchBar() {
   const [formSearchText, handleFormSearchInputChange, reset] = useForm({
@@ -27,6 +31,7 @@ export default function SearchBar() {
       dispatch(resetFilter());
       dispatch(resetOrder());
       dispatch(startSearchProducts(search));
+      dispatch(showResults());
       reset();
     }
   };
