@@ -37,16 +37,11 @@ export const productsReducer = (state = initialState, action) => {
         [PRODUCTS_STATE.SEARCH_RESULTS]: action.payload
       };
     case types.productAddProduct:
-      // eslint-disable-next-line no-case-declarations
-      const newProducts = [...state.PRODUCTS_STATE.PRODUCTS, action.payload];
-      console.log({ newProducts });
       return {
         ...state,
-        [PRODUCTS_STATE.PRODUCTS]: [
-          ...state.PRODUCTS_STATE.PRODUCTS,
-          action.payload
-        ]
+        [PRODUCTS_STATE.PRODUCTS]: [...state.products, action.payload]
       };
+
     default:
       return state;
   }

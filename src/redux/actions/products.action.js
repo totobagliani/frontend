@@ -20,20 +20,18 @@ export const setSearchResults = (results, searchTerm) => ({
   }
 });
 
-const addProductAction = (product) => {
-  const action = {
-    type: types.productAddProduct,
-    payload: product
-  };
-  console.log({ action });
-  return action;
-};
+export const addProductAction = (product) => ({
+  type: types.productAddProduct,
+  payload: product
+});
 
 export const startAddProduct = (imgFile, product) => async (dispatch) => {
   try {
     const imageURL = await uploadFileToCloud(imgFile);
     const productToAdd = { ...product, imageURL };
+
     const resp = await addProduct(productToAdd);
+
     if (resp.ok) {
       const { newProduct } = resp;
 
