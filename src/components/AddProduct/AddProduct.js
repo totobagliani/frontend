@@ -1,20 +1,23 @@
 /* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';
 import { useForm } from '../../hooks/useForm';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
+import { startAddProduct } from '../../redux/actions/products.action';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
 
+  const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
 
-  const [formAddProductValues, handleProductValueInputChange] = useForm(
+  const [formAddProductValues, handleProductValueInputChange, reset] = useForm(
     ADD_PRODUCT_INITIAL_STATE
   );
   const [favourite, setFavourite] = useState(false);
@@ -29,13 +32,14 @@ export default function AddProduct() {
     productName: false,
     description: false,
     price: false,
-    section: false
+    section: false,
+    imgFile: false
   });
   // eslint-disable-next-line no-unused-vars
   const errorEntries = Object.entries(formError).filter(
     (item) => item[1] === true
   );
-  console.log({ errorEntries });
+
   const handleFavourite = () => {
     setFavourite(!favourite);
   };
@@ -47,7 +51,7 @@ export default function AddProduct() {
   const handleAddProductSubmit = (e) => {
     e.preventDefault();
     // Validacion de los elementos.
-    const formFields = Object.entries(formAddProductValues);
+    const formFields = Object.entries({ ...formAddProductValues, imgFile });
     formFields.forEach((field) => {
       if (!field[1]) {
         // eslint-disable-next-line no-param-reassign
@@ -69,13 +73,15 @@ export default function AddProduct() {
           description,
           isFavourite: favourite,
           price,
-          section,
-          imgFile
+          section
         };
 
         console.log({ product });
+
+        dispatch(startAddProduct(imgFile, product));
         // dispatch(startAddProduct(imgFile, product));
         // navigate('/');
+        reset();
       }
     }
   };
