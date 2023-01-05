@@ -20,10 +20,14 @@ export const setSearchResults = (results, searchTerm) => ({
   }
 });
 
-export const addProductAction = (product) => ({
-  type: types.productAddProduct,
-  payload: product
-});
+const addProductAction = (product) => {
+  const action = {
+    type: types.productAddProduct,
+    payload: product
+  };
+  console.log({ action });
+  return action;
+};
 
 export const startAddProduct = (imgFile, product) => async (dispatch) => {
   try {
@@ -32,6 +36,7 @@ export const startAddProduct = (imgFile, product) => async (dispatch) => {
     const resp = await addProduct(productToAdd);
     if (resp.ok) {
       const { newProduct } = resp;
+
       dispatch(addProductAction(newProduct));
     }
     return resp;
