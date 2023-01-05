@@ -1,4 +1,5 @@
 import React from 'react';
+import { selectProductsByFilter } from '../../redux/selectors';
 
 export default function CustomSelect({ selectProps, handleChange = () => {} }) {
   /*  const selectProp = {
@@ -26,7 +27,7 @@ export default function CustomSelect({ selectProps, handleChange = () => {} }) {
           value={value}
           className={selectProps.classOption}
         >
-          {value}
+          {value} - {selectProductsByFilter(value).length}
         </option>
       ))}
     </select>

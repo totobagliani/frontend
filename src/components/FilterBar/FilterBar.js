@@ -32,7 +32,7 @@ export default function FilterBar() {
         <CustomSelect
           selectProps={{
             selectName: 'product-section',
-            selectTitle: ' Productos (53)',
+            selectTitle: ' Productos',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
             classOption: styles.filterbar__option,
