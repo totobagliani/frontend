@@ -10,14 +10,17 @@ import { ELEMENTS_PER_PAGE } from '../../services/constants';
 export const selectProductsByKey = (key) =>
   useSelector((state) => state?.products[key] || []);
 
-export const selectProductsByFilter = (filterValue = '') =>
-  filterValue
-    ? useSelector((state) =>
-        state.products[PRODUCTS_STATE.PRODUCTS].filter(
-          (product) => product.section === filterValue
-        )
-      )
-    : useSelector((state) => state.products[PRODUCTS_STATE.PRODUCTS]);
+export const selectProductsByFilter = (filterValue = '') => {
+  if (!filterValue) {
+    return useSelector((state) => state.products[PRODUCTS_STATE.PRODUCTS]);
+  }
+
+  return useSelector((state) =>
+    state.products[PRODUCTS_STATE.PRODUCTS].filter(
+      (product) => product.section === filterValue
+    )
+  );
+};
 
 export const selectProductsByPage = (key, startPosition, endPosition) =>
   useSelector((state) =>

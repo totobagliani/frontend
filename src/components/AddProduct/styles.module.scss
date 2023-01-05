@@ -1,8 +1,8 @@
 @import '../../styles/settings.scss';
+
 .addProduct__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .addProduct {
@@ -46,6 +46,28 @@
 
 .file-selector-toimage {
   display: none;
+}
+
+.errors {
+  padding: 0.5em 1em 1em;
+  color: $danger;
+  font-family: $searchResultsHeader;
+  font-size: 0.9em;
+}
+.errors__title {
+  padding-bottom: 0.5em;
+}
+.errors__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.errors__item {
+  text-transform: capitalize;
+  text-align: center;
+  padding-bottom: 0.5em;
 }
 
 .addproduct__buttons {

@@ -1,20 +1,25 @@
 /* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';
 import { useForm } from '../../hooks/useForm';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
-// import { useValidationForm } from '../../hooks/useValidator';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
+
+  // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
 
   const [formAddProductValues, handleProductValueInputChange] = useForm(
     ADD_PRODUCT_INITIAL_STATE
   );
   const [favourite, setFavourite] = useState(false);
+
+  const { productName, description, price, section } = formAddProductValues;
 
   const fileSelectorRef = useRef();
 
@@ -24,21 +29,13 @@ export default function AddProduct() {
     productName: false,
     description: false,
     price: false,
-    section: false,
+    section: false
   });
   // eslint-disable-next-line no-unused-vars
   const errorEntries = Object.entries(formError).filter(
     (item) => item[1] === true
   );
-
-  // eslint-disable-next-line max-len
-  /*   const [formError, handleformErrorChange] = useValidationForm({ ...ADD_PRODUCT_INITIAL_STATE }, [
-    'isFavourite'
-  ]);
- */
-
-  const { productName, description, price, section } = formAddProductValues;
-
+  console.log({ errorEntries });
   const handleFavourite = () => {
     setFavourite(!favourite);
   };
@@ -63,7 +60,24 @@ export default function AddProduct() {
     const objFields = Object.fromEntries(formFields);
 
     setFormError(objFields);
-    console.error(formError);
+
+    if (errorEntries.length === 0) {
+      console.log('amtes del imgFile');
+      if (imgFile !== false) {
+        const product = {
+          productName,
+          description,
+          isFavourite: favourite,
+          price,
+          section,
+          imgFile
+        };
+
+        console.log({ product });
+        // dispatch(startAddProduct(imgFile, product));
+        // navigate('/');
+      }
+    }
   };
 
   return (
@@ -100,7 +114,7 @@ export default function AddProduct() {
               selectTitle: 'Sección',
               classSelect: styles.addproduct__select,
               classTitle: styles.addproduct__optiontitle,
-              optionValues: sections,
+              optionValues: sections
             }}
             name="section"
             value={section}
@@ -165,6 +179,25 @@ export default function AddProduct() {
             />
           </label>
         </fieldset>
+        {errorEntries.length !== 0 && (
+          <div className={styles.errors}>
+            <p className={styles.errors__title}>
+              Error de validacion para los siguientes campos:{' '}
+            </p>
+            {imgFile === false && (
+              <p className={styles.errors__item}>
+                Solo se puede añadir un producto con una imagen
+              </p>
+            )}
+            <ul className={styles.errors__list}>
+              {errorEntries.map((errorEntry) => (
+                <li key={errorEntry} className={styles.errors__item}>
+                  {errorEntry[0]}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className={styles.addproduct__buttons}>
           <button className="btn btn--cancel" type="button">
             Cancelar
@@ -178,25 +211,6 @@ export default function AddProduct() {
           </button>
         </div>
       </form>
-      {errorEntries.length !== 0 && (
-        <div className="errors">
-          <p className="errors__title">
-            Error de validacion para los siguientes campos:{' '}
-          </p>
-          {imgFile === false && (
-            <p className="errors__item">
-              Solo se puede añadir un producto con una imagen
-            </p>
-          )}
-          <ul className="errors__list">
-            {errorEntries.map((errorEntry) => (
-              <li key={errorEntry} className="errors__item">
-                {errorEntry[0]}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }

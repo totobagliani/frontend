@@ -17,8 +17,6 @@ export const SORT_OPTIONS = {
 export const ADD_PRODUCT_INITIAL_STATE = {
   productName: '',
   description: '',
-  imageURL: '',
-  isFavourite: false,
   price: '',
   section: ''
 };

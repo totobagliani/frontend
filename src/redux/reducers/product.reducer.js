@@ -36,6 +36,14 @@ export const productsReducer = (state = initialState, action) => {
         ...state,
         [PRODUCTS_STATE.SEARCH_RESULTS]: action.payload
       };
+    case types.productAddProduct:
+      return {
+        ...state,
+        [PRODUCTS_STATE.PRODUCTS]: [
+          ...state.PRODUCTS_STATE.PRODUCTS,
+          action.payload
+        ]
+      };
     default:
       return state;
   }

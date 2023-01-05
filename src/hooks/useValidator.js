@@ -1,6 +1,4 @@
 /* eslint-disable comma-dangle */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
 // Form values es un objeto con keys nombre de campos y values a cero;

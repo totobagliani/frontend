@@ -2,7 +2,7 @@
 export const types = {
   productSetProducts: '@product/Set',
   productSetSearchResults: '@product/SetSearchResults',
-  productSetProductAdded: '@product/SetAdded',
+  productAddProduct: '@product/AddProduct',
   uiSetCurrentPage: '@UI/SetCurrentPage',
   uiIncrementedPage: '@UI/IncrementedPage',
   uiDecrementedPage: '@UI/DecrementedPage',
