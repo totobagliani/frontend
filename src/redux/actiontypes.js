@@ -7,5 +7,7 @@ export const types = {
   uiIncrementedPage: '@UI/IncrementedPage',
   uiDecrementedPage: '@UI/DecrementedPage',
   uiSetFilter: '@UI/SetFilter',
-  uiSetOrder: '@UI/SetOrder'
+  uiSetOrder: '@UI/SetOrder',
+  uiResetFilter: '@UI/ResetFilter',
+  uiResetOrder: '@Ui/ResetOrder'
 };

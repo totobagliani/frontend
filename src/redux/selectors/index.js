@@ -46,15 +46,14 @@ export const selectProductsByCurrentPage = () => {
     products = products.filter((product) => product.section === filterValue);
   }
 
-  if (order !== '' && order !== 'precio') {
+  if (order !== '' && order !== 'price') {
     products = products.sort((valueA, valueB) =>
       valueA[order].localeCompare(valueB[order])
     );
   }
 
-  if (order === 'precio') {
-    console.log({ order });
-    products = products.sort((valueA, valueB) => valueA - valueB);
+  if (order === 'price') {
+    products = products.sort((valueA, valueB) => valueA[order] - valueB[order]);
   }
 
   const initialPageIndex = (currentPage - 1) * ELEMENTS_PER_PAGE;

@@ -40,6 +40,17 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         [UI_STATE.CURRENT_ORDER]: action.payload
       };
+    case types.uiResetFilter:
+      return {
+        ...state,
+        [UI_STATE.CURRENT_FILTER]: ''
+      };
+
+    case types.uiResetOrder:
+      return {
+        ...state,
+        [UI_STATE.CURRENT_ORDER]: ''
+      };
 
     default:
       return state;
