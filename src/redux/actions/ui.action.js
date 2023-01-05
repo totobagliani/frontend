@@ -1,4 +1,5 @@
 /* eslint-disable comma-dangle */
+import { SORT_OPTIONS } from '../../services/constants';
 import { types } from '../actiontypes';
 
 export const setCurrentPage = (page) => ({
@@ -20,3 +21,18 @@ export const setFilter = (filter) => ({
   type: types.uiSetFilter,
   payload: filter
 });
+
+export const setOrder = (orderValue) => {
+  console.log(orderValue);
+  console.log(SORT_OPTIONS);
+  const orderObject = Object.entries(SORT_OPTIONS).find(
+    (option) => option[1] === orderValue
+  );
+
+  console.log(orderObject);
+
+  return {
+    type: types.uiSetOrder,
+    payload: orderObject[0]
+  };
+};

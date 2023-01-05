@@ -31,17 +31,30 @@ export const selectCurrentPage = () =>
   useSelector((state) => state?.ui[UI_STATE.CURRENT_PAGE] || 1);
 
 export const selectCurrentFilter = () =>
-  useSelector((state) => state?.ui[UI_STATE.CURRENT_FILTER]);
+  useSelector((state) => state?.ui[UI_STATE.CURRENT_FILTER] || '');
+
+export const selectCurrentOrder = () =>
+  useSelector((state) => state?.ui[UI_STATE.CURRENT_ORDER] || '');
 
 export const selectProductsByCurrentPage = () => {
   let products = selectProductsByKey(PRODUCTS_STATE.PRODUCTS);
   const currentPage = selectCurrentPage();
-
-  // TODO crear un selector para el filter
   const filterValue = selectCurrentFilter();
+  const order = selectCurrentOrder();
 
   if (filterValue) {
     products = products.filter((product) => product.section === filterValue);
+  }
+
+  if (order !== '' && order !== 'precio') {
+    products = products.sort((valueA, valueB) =>
+      valueA[order].localeCompare(valueB[order])
+    );
+  }
+
+  if (order === 'precio') {
+    console.log({ order });
+    products = products.sort((valueA, valueB) => valueA - valueB);
   }
 
   const initialPageIndex = (currentPage - 1) * ELEMENTS_PER_PAGE;
@@ -51,7 +64,6 @@ export const selectProductsByCurrentPage = () => {
     initialPageIndex,
     finalPageIndex
   );
-  // return products filter
 
   return productsByCurrentPage;
 };

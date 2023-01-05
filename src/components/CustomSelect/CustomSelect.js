@@ -17,7 +17,7 @@ export default function CustomSelect({ selectProps, handleChange = () => {} }) {
       defaultValue=""
       onChange={handleChange}
     >
-      <option value="" disabled className={selectProps.classTitle}>
+      <option value="" className={selectProps.classTitle}>
         {selectProps.selectTitle}
       </option>
       {selectProps.optionValues.map((value) => (

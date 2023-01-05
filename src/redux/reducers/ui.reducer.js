@@ -3,12 +3,14 @@ import { types } from '../actiontypes';
 
 export const UI_STATE = {
   CURRENT_PAGE: 'currentPage',
-  CURRENT_FILTER: 'currentFilter'
+  CURRENT_FILTER: 'currentFilter',
+  CURRENT_ORDER: 'currentOrder'
 };
 
 const initialState = {
   [UI_STATE.CURRENT_PAGE]: 1,
-  [UI_STATE.CURRENT_FILTER]: ''
+  [UI_STATE.CURRENT_FILTER]: '',
+  [UI_STATE.CURRENT_ORDER]: ''
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -33,6 +35,12 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         [UI_STATE.CURRENT_FILTER]: action.payload
       };
+    case types.uiSetOrder:
+      return {
+        ...state,
+        [UI_STATE.CURRENT_ORDER]: action.payload
+      };
+
     default:
       return state;
   }

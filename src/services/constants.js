@@ -9,9 +9,9 @@ export const SECTIONS = {
 };
 
 export const SORT_OPTIONS = {
-  PRECIO: 'precio',
-  NOMBRE: 'nombre',
-  SECCION: 'seccion'
+  price: 'precio',
+  productName: 'nombre',
+  section: 'seccion'
 };
 
 export const ADD_PRODUCT_INITIAL_STATE = {
