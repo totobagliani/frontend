@@ -27,6 +27,9 @@ export const selectProductsByPage = (key, startPosition, endPosition) =>
     )
   );
 
+export const selectResultsSearch = () =>
+  useSelector((state) => state.products[PRODUCTS_STATE.SEARCH_RESULTS]);
+
 export const selectCurrentPage = () =>
   useSelector((state) => state?.ui[UI_STATE.CURRENT_PAGE] || 1);
 
