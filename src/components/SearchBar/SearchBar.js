@@ -38,22 +38,41 @@ export default function SearchBar() {
 
   return (
     <div className={styles.search__container}>
-      <form className={styles.search__form}>
-        {visible && (
-          <input
-            className="inputtext"
-            type="search"
-            placeholder="Search"
-            id="search-box"
-            name="search"
-            value={search}
-            onChange={handleFormSearchInputChange}
-          />
-        )}
+      <form>
+        {visible ? (
+          <div>
+            <input
+              className={styles.search__input}
+              type="search"
+              placeholder="Busca"
+              id="search-box"
+              name="search"
+              value={search}
+              onChange={handleFormSearchInputChange}
+            />
 
-        <button type="submit" className="btn" onClick={handleSearchSubmit}>
-          <SearchOutlined className={styles.search__icon} />
-        </button>
+            <button type="submit" className="btn" onClick={handleSearchSubmit}>
+              <SearchOutlined className={styles.search__icon} />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              type="submit"
+              className={styles.search__button}
+              onClick={handleSearchSubmit}
+            >
+              <div>
+                {' '}
+                <text className={styles.search__buttonText}>
+                  {' '}
+                  Busca un Producto =
+                </text>
+                <SearchOutlined className={styles.search__icon} />
+              </div>
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );

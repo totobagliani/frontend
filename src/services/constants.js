@@ -1,17 +1,17 @@
 /* eslint-disable comma-dangle */
 export const SECTIONS = {
-  BAÑO: 'baño',
-  DORMITORIO: 'dormitorio',
-  COCINA: 'cocina',
-  SALON: 'salon',
-  TERRAZA: 'terraza',
-  COMEDOR: 'comedor'
+  BAÑO: 'Baño',
+  DORMITORIO: 'Dormitorio',
+  COCINA: 'Cocina',
+  SALON: 'Salon',
+  TERRAZA: 'Terraza',
+  COMEDOR: 'Comedor'
 };
 
 export const SORT_OPTIONS = {
-  price: 'precio',
-  productName: 'nombre',
-  section: 'seccion'
+  price: 'Precio',
+  productName: 'Nombre',
+  section: 'Sección'
 };
 
 export const ADD_PRODUCT_INITIAL_STATE = {

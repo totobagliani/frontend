@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectProductsByCurrentPage } from '../../../redux/selectors/index';

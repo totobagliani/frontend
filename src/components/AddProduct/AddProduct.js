@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';
 import { useForm } from '../../hooks/useForm';
-import CustomSelect from '../CustomSelect/CustomSelect';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
 import { startAddProduct } from '../../redux/actions/products.action';
+import CustomSelectAddProduct from '../CustomSelect/CustomSelectAddProduct';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
@@ -77,7 +77,6 @@ export default function AddProduct() {
 
         dispatch(startAddProduct(imgFile, product));
         reset();
-        navigate('/');
       }
     }
   };
@@ -110,7 +109,7 @@ export default function AddProduct() {
             onChange={handleProductValueInputChange}
           />
 
-          <CustomSelect
+          <CustomSelectAddProduct
             selectProps={{
               selectName: 'section',
               selectTitle: 'Sección',
@@ -170,7 +169,7 @@ export default function AddProduct() {
             onChange={handleProductValueInputChange}
           />
 
-          <label htmlFor="isFAvourite" className="formLabel">
+          <label htmlFor="isFavourite" className="formLabel">
             Favorito:
             <input
               type="checkbox"

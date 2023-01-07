@@ -3,12 +3,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { SECTIONS, SORT_OPTIONS } from '../../services/constants';
-import CustomSelect from '../CustomSelect/CustomSelect';
 import {
   setCurrentPage,
   setFilter,
   setOrder
 } from '../../redux/actions/ui.action';
+import CustomSelectOrderBy from '../CustomSelect/CustomSelectOrderBy';
+import CustomSelectProductsSection from '../CustomSelect/CustomSelectProductsSection';
 
 export default function FilterBar() {
   const sections = Object.values(SECTIONS);
@@ -29,7 +30,7 @@ export default function FilterBar() {
   return (
     <div className={styles.filterbar}>
       <form className={styles.filterbar__form}>
-        <CustomSelect
+        <CustomSelectProductsSection
           selectProps={{
             selectName: 'product-section',
             selectTitle: ' Productos',
@@ -41,7 +42,7 @@ export default function FilterBar() {
           handleChange={handleSetFilter}
         />
 
-        <CustomSelect
+        <CustomSelectOrderBy
           selectProps={{
             selectName: 'order',
             selectTitle: 'Ordenar Por',

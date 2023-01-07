@@ -1,16 +1,10 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
-import { selectProductsByFilter } from '../../redux/selectors';
 
-export default function CustomSelect({ selectProps, handleChange = () => {} }) {
-  /*  const selectProp = {
-    selectName: 'A name',
-    classSelect: 'choose',
-    selectTitle: 'Choose a section',
-    classTitle: 'Classname Title',
-    classOption: 'classname for the opcion"
-    optionValues: []
-  };   PropTypes */
-
+export default function CustomSelectOrderBy({
+  selectProps,
+  handleChange = () => {}
+}) {
   return (
     <select
       name={selectProps.selectName}
@@ -19,7 +13,7 @@ export default function CustomSelect({ selectProps, handleChange = () => {} }) {
       onChange={handleChange}
     >
       <option value="" className={selectProps.classTitle}>
-        {selectProps.selectTitle}
+        {selectProps.selectTitle}:
       </option>
       {selectProps.optionValues.map((value) => (
         <option
@@ -27,7 +21,7 @@ export default function CustomSelect({ selectProps, handleChange = () => {} }) {
           value={value}
           className={selectProps.classOption}
         >
-          {value} - {selectProductsByFilter(value).length}
+          {value}
         </option>
       ))}
     </select>

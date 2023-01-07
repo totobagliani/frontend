@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const isException = (term, exceptions) => exceptions.includes(term);
 
 export const validateFields = (formValuesObj, exceptions = []) => {

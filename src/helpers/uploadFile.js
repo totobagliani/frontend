@@ -1,7 +1,8 @@
+/* eslint-disable comma-dangle */
 import { UPLOADPRESET } from '../services/constants';
 
 export const uploadFileToCloud = async (file) => {
-  const url = process.env.REACT_APP_API_CLOUDYNARY;
+  const url = process.env.REACT_APP_API_CLOUDINARY;
   const uploadPreset = UPLOADPRESET;
 
   const formData = new FormData();
@@ -12,7 +13,7 @@ export const uploadFileToCloud = async (file) => {
   try {
     const resp = await fetch(url, {
       method: 'POST',
-      body: formData,
+      body: formData
     });
 
     if (resp.ok) {
