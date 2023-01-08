@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the AddProduct Component then must be rendered (take a snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="addProduct__container"
+  >
+    <h2
+      class="addproduct_header"
+    >
+      Añadir Producto
+    </h2>
+    <form
+      class="addProduct"
+      id="addProduct-form"
+    >
+      <fieldset
+        class="addproduct_group"
+      >
+        <input
+          class="addproduct__text inputtext"
+          maxlength="20"
+          name="productName"
+          placeholder="Añade un nombre"
+          type="text"
+          value=""
+        />
+        <input
+          class="addproduct__text inputtext"
+          maxlength="60"
+          name="description"
+          placeholder="Escriba una pequeña descripción"
+          type="text"
+          value=""
+        />
+        <select
+          class="addproduct__select"
+          name="section"
+        >
+          <option
+            class="addproduct__optiontitle"
+            selected=""
+            value=""
+          >
+            Sección
+          </option>
+          <option
+            value="Baño"
+          >
+            Baño
+          </option>
+          <option
+            value="Dormitorio"
+          >
+            Dormitorio
+          </option>
+          <option
+            value="Cocina"
+          >
+            Cocina
+          </option>
+          <option
+            value="Salon"
+          >
+            Salon
+          </option>
+          <option
+            value="Terraza"
+          >
+            Terraza
+          </option>
+          <option
+            value="Comedor"
+          >
+            Comedor
+          </option>
+        </select>
+      </fieldset>
+      <fieldset
+        class="addproduct_group"
+      >
+        <div
+          class="imgForm__container"
+        >
+          <img
+            accept="image/png, .jpeg, .jpg, image/gif"
+            alt="imagen sin cargar"
+            class="imgform__image"
+            src="empty.jpg"
+          />
+        </div>
+        <input
+          class="file-selector-toimage"
+          form="addProduct-form"
+          id="file-selector-toimage"
+          name="imageURL"
+          placeholder="sube una imagen"
+          type="file"
+        />
+        <button
+          class="btn btn--accept"
+          form="addProduct-form"
+          type="button"
+        >
+          Elegir Imagen
+        </button>
+      </fieldset>
+      <fieldset
+        class="addproduct_group"
+      >
+        <input
+          class="addproduct__text inputtext"
+          name="price"
+          placeholder="Indica el precio "
+          step=".01"
+          type="number"
+          value=""
+        />
+        <label
+          class="formLabel"
+          for="isFavourite"
+        >
+          Favorito:
+          <input
+            class="checkboxForm"
+            name="favourite"
+            type="checkbox"
+            value="false"
+          />
+        </label>
+      </fieldset>
+      <div
+        class="addproduct__buttons"
+      >
+        <button
+          class="btn btn--cancel"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          class="btn btn--accept"
+          form="addProduct-form"
+          type="submit"
+        >
+          Publicar
+        </button>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;

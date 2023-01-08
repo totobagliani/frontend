@@ -43,22 +43,6 @@ jest.mock('../../redux/actions/ui.action', () => ({
   hiddenResults: jest.fn()
 }));
 
-/* jest.mock('react-redux', () => ({
-  useSelector: jest.fn().mockImplementation((selector) => selector())
-})); */
-
-/* jest.mock('../../redux/selectors', () => ({
-  selectResultsSearch: jest.fn().mockReturnValue({
-    itemsCount: 3,
-    searchTerm: 'algo'
-  }),
-  selectVisibilityResults: jest.fn().mockReturnValue({
-    ui: {
-      resultsVisible: true
-    }
-  })
-})); */
-
 describe('Given the Header Component', () => {
   beforeEach(() => {
     render(
