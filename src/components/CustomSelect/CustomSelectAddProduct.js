@@ -1,6 +1,5 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
-import { startAddProduct } from '../../redux/actions/products.action';
 
 export default function CustomSelectAddProduct({
   selectProps,
@@ -15,8 +14,6 @@ export default function CustomSelectAddProduct({
     optionValues: []
   };   PropTypes */
 
-  const productCounter = startAddProduct.length;
-
   return (
     <select
       name={selectProps.selectName}
@@ -25,7 +22,7 @@ export default function CustomSelectAddProduct({
       onChange={handleChange}
     >
       <option value="" className={selectProps.classTitle}>
-        {selectProps.selectTitle} ({productCounter})
+        {selectProps.selectTitle}
       </option>
       {selectProps.optionValues.map((value) => (
         <option
