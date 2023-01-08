@@ -27,7 +27,7 @@ export const searchProductsByTitleTerm = async (term) => {
 };
 
 export const addProduct = async (product) => {
-  // localhost:8000/api/products/  -POST
+  // localhost:5000/api/products/  -POST
   const baseURL = process.env.REACT_APP_API_URL;
   const resourcePath = 'api/products';
 
