@@ -2,12 +2,6 @@
 import { types } from '../actiontypes';
 import { productsReducer } from './product.reducer';
 
-const PRODUCTS_STATE = {
-  PRODUCTS: 'products',
-  PRODUCT_ADDED: 'productAdded',
-  SEARCH_RESULTS: 'searchResults'
-};
-
 const initialState = {
   [PRODUCTS_STATE.PRODUCTS]: [],
   [PRODUCTS_STATE.PRODUCT_ADDED]: {
