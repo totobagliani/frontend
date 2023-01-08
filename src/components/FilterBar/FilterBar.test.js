@@ -68,10 +68,10 @@ describe('Given the FilterBar Component', () => {
       name: 'product-section'
     }); */
     const selectProduct = screen.getByDisplayValue(/productos/i);
-    const optionCocina = screen.getByText(/cocina - 0/i);
+    const optionCocina = screen.getByText(/Cocina - 0/i);
 
     userEvent.selectOptions(selectProduct, optionCocina);
-    expect(optionCocina.value).toBe('cocina');
+    expect(optionCocina.value).toBe('Cocina');
     expect(setFilter).toHaveBeenCalled();
   });
   test('when select a order in Select then call to handleSetOrder', () => {
