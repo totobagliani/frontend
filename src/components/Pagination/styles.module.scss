@@ -34,3 +34,10 @@
     background-color: $gray-normal;
   }
 }
+
+.pagination__button--disabled {
+  color: $gray-normal;
+  &:hover {
+    cursor: default;
+  }
+}

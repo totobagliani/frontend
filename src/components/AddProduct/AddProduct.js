@@ -1,43 +1,98 @@
 /* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { SECTIONS, ADD_PRODUCT_INITIAL_STATE } from '../../services/constants';
 import { useForm } from '../../hooks/useForm';
-import CustomSelect from '../CustomSelect/CustomSelect';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
+import { startAddProduct } from '../../redux/actions/products.action';
+import CustomSelectAddProduct from '../CustomSelect/CustomSelectAddProduct';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
 
-  const [formAddProductValues, handleProductValueInputChange] = useForm(
+  const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
+
+  const [formAddProductValues, handleProductValueInputChange, reset] = useForm(
     ADD_PRODUCT_INITIAL_STATE
   );
-  const [favov, setFavor] = useState(false);
+  const [favourite, setFavourite] = useState(false);
+
+  const { productName, description, price, section } = formAddProductValues;
 
   const fileSelectorRef = useRef();
 
-  const [imgFile, handleFileChange] = useImgData(null);
+  const [imgFile, handleFileChange] = useImgData(false);
+
+  const [formError, setFormError] = useState({
+    productName: false,
+    description: false,
+    price: false,
+    section: false,
+    imgFile: false
+  });
+  // eslint-disable-next-line no-unused-vars
+  const errorEntries = Object.entries(formError).filter(
+    (item) => item[1] === true
+  );
 
   const handleFavourite = () => {
-    setFavor(!favov);
+    setFavourite(!favourite);
   };
 
   const handleClickPicture = () => {
     fileSelectorRef.current.click();
   };
 
-  const { productName, description, price, section } = formAddProductValues;
+  const handleAddProductSubmit = (e) => {
+    e.preventDefault();
+    // Validacion de los elementos.
+    const formFields = Object.entries({ ...formAddProductValues, imgFile });
+    formFields.forEach((field) => {
+      if (!field[1]) {
+        // eslint-disable-next-line no-param-reassign
+        field[1] = true;
+      } else {
+        // eslint-disable-next-line no-param-reassign
+        field[1] = false;
+      }
+    });
+    const objFields = Object.fromEntries(formFields);
+
+    setFormError(objFields);
+
+    if (errorEntries.length === 0) {
+      if (imgFile !== false) {
+        const product = {
+          productName,
+          description,
+          isFavourite: favourite,
+          price,
+          section
+        };
+
+        dispatch(startAddProduct(imgFile, product));
+        reset();
+      }
+    }
+  };
 
   return (
     <div className={styles.addProduct__container}>
       <h2 className={styles.addproduct_header}>Añadir Producto</h2>
-      <form id="addProduct" className={styles.addProduct}>
+      <form
+        id="addProduct-form"
+        className={styles.addProduct}
+        onSubmit={handleAddProductSubmit}
+      >
         <fieldset className={styles.addproduct_group}>
           <input
             type="text"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Añade un nombre"
             maxLength={20}
             name="productName"
@@ -47,7 +102,6 @@ export default function AddProduct() {
           <input
             type="text"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Escriba una pequeña descripción"
             maxLength={60}
             name="description"
@@ -55,21 +109,22 @@ export default function AddProduct() {
             onChange={handleProductValueInputChange}
           />
 
-          <CustomSelect
+          <CustomSelectAddProduct
             selectProps={{
               selectName: 'section',
               selectTitle: 'Sección',
               classSelect: styles.addproduct__select,
               classTitle: styles.addproduct__optiontitle,
-              optionValues: sections,
+              optionValues: sections
             }}
+            name="section"
             value={section}
-            onChange={handleProductValueInputChange}
+            handleChange={handleProductValueInputChange}
           />
         </fieldset>
         <fieldset className={styles.addproduct_group}>
           <div className="imgForm__container">
-            {imgFile === null ? (
+            {!imgFile ? (
               <img
                 className={styles.imgform__image}
                 src={pathimg}
@@ -85,7 +140,7 @@ export default function AddProduct() {
             )}
           </div>
           <input
-            form="addProduct"
+            form="addProduct-form"
             id="file-selector-toimage"
             ref={fileSelectorRef}
             className={styles['file-selector-toimage']}
@@ -95,7 +150,7 @@ export default function AddProduct() {
             onChange={handleFileChange}
           />
           <button
-            form="addpost-form"
+            form="addProduct-form"
             className="btn btn--accept"
             type="button"
             onClick={handleClickPicture}
@@ -106,30 +161,53 @@ export default function AddProduct() {
         <fieldset className={styles.addproduct_group}>
           <input
             type="number"
+            step=".01"
             name="price"
             className={`${styles.addproduct__text} inputtext`}
-            required
             placeholder="Indica el precio "
             value={price}
             onChange={handleProductValueInputChange}
           />
 
-          <label htmlFor="isFAvourite" className="formLabel">
+          <label htmlFor="isFavourite" className="formLabel">
             Favorito:
             <input
               type="checkbox"
-              name="isFAvourite"
+              name="favourite"
               className="checkboxForm"
-              value={favov}
-              onClick={handleFavourite}
+              value={favourite}
+              onChange={handleFavourite}
             />
           </label>
         </fieldset>
+        {errorEntries.length !== 0 && (
+          <div className={styles.errors}>
+            <p className={styles.errors__title}>
+              Error de validacion para los siguientes campos:{' '}
+            </p>
+            {imgFile === false && (
+              <p className={styles.errors__item}>
+                Solo se puede añadir un producto con una imagen
+              </p>
+            )}
+            <ul className={styles.errors__list}>
+              {errorEntries.map((errorEntry) => (
+                <li key={errorEntry} className={styles.errors__item}>
+                  {errorEntry[0]}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className={styles.addproduct__buttons}>
           <button className="btn btn--cancel" type="button">
             Cancelar
           </button>
-          <button form="addpost-form" className="btn btn--accept" type="submit">
+          <button
+            form="addProduct-form"
+            className="btn btn--accept"
+            type="submit"
+          >
             Publicar
           </button>
         </div>

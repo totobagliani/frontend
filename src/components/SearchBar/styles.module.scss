@@ -11,14 +11,40 @@
   outline: none;
   border: none;
   background-color: $gray-light;
-  font-size: 0.6em;
   padding: 10px;
   margin: 0%;
   box-sizing: border-box;
 }
+
+.search__buttonText {
+  font-size: 15px;
+  padding: 2px;
+}
+
 .search__icon {
   font-size: 1.2em;
   margin-left: 0.2em;
 }
 @media only screen and (min-width: 481px) {
+  .search__input {
+    outline: none;
+    border: none;
+    background-color: $gray-light;
+    width: 500px;
+    height: 35px;
+    padding: 10px;
+    margin: 0%;
+    box-sizing: border-box;
+    margin-left: 80px;
+  }
+
+  .search__buttonText {
+    font-size: 25px;
+    padding: 10px 8px 10px 25px;
+  }
+
+  .search__button {
+    font-size: 25px;
+    margin-left: 105px;
+  }
 }

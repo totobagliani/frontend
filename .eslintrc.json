@@ -23,6 +23,7 @@
     "default-param-last": "off",
     "react/prop-types": "off",
     "consistent-return": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }
