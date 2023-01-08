@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "products": [
+    {
+      "productName": "Mesa de baño",
+      "description": "mesa de madera linda",
+      "imageURL": "https://assets.leroymerlin.es/is/image/lmes/15769985-0400/estanteria-2-estantes-lotus-madera-27x70.jpg?$lmesBgMobile$&fit=constrain,0",
+      "isFavourite": false,
+      "price": 85.99,
+      "section": "baño",
+      "__v": 0,
+      "id": "6298d964955b7b7648a8c413"
+    },
+    {
+      "productName": "jarra",
+      "description": "jarra linda",
+      "imageURL": "https://assets.leroymerlin.es/is/image/lmes/15769985-0400/estanteria-2-estantes-lotus-madera-27x70.jpg?$lmesBgMobile$&fit=constrain,0",
+      "isFavourite": false,
+      "price": 15.99,
+      "section": "baño",
+      "__v": 0,
+      "id": "6298de51913731ca34285593"
+    },
+    {
+      "productName": "Set de Baño",
+      "description": "Set Baño",
+      "imageURL": "https://www.codisbath.com/wp-content/uploads/2021/02/mugarri-entrevista-codis-27.jpg",
+      "isFavourite": false,
+      "price": 500,
+      "section": "baño",
+      "id": "629e1301e655592b12cbb424"
+    },
+
+    {
+      "productName": "Dormitorio",
+      "description": "01 Dormitorio ",
+      "imageURL": "https://dismobel.es/44535-large_default/dormitorio-boho-20-de-lan-mobel.jpg",
+      "isFavourite": true,
+      "price": 99.9,
+      "section": "dormitorio",
+      "id": "629e1531e655592b12cf5362"
+    },
+
+    {
+      "productName": "Juego para cocina",
+      "description": "Juego para cocina completo. ",
+      "imageURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/0181-c2101-r1529506-1531506680.jpg",
+      "isFavourite": true,
+      "price": 99.9,
+      "section": "cocina",
+      "id": "629e16afe655592b12d1cf83"
+    },
+
+    {
+      "productName": "Salón red",
+      "description": "Salón 01 red",
+      "imageURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/salon-moderno-blanco-con-vigas-1600353658.jpg",
+      "isFavourite": false,
+      "price": 9799.9,
+      "section": "salon",
+      "id": "629e1807e655592b12d41852"
+    }
+  ]
+}
