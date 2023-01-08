@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the FilterBar Component then must be rendered (take a snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="filterbar"
+  >
+    <form
+      class="filterbar__form"
+    >
+      <select
+        class="filterbar__select"
+        name="product-section"
+      >
+        <option
+          class="filterbar__optiontitle"
+          selected=""
+          value=""
+        >
+           Productos (2)
+        </option>
+        <option
+          class="filterbar__option"
+          value="Baño"
+        >
+          Baño - 0
+        </option>
+        <option
+          class="filterbar__option"
+          value="Dormitorio"
+        >
+          Dormitorio - 0
+        </option>
+        <option
+          class="filterbar__option"
+          value="Cocina"
+        >
+          Cocina - 0
+        </option>
+        <option
+          class="filterbar__option"
+          value="Salon"
+        >
+          Salon - 0
+        </option>
+        <option
+          class="filterbar__option"
+          value="Terraza"
+        >
+          Terraza - 0
+        </option>
+        <option
+          class="filterbar__option"
+          value="Comedor"
+        >
+          Comedor - 0
+        </option>
+      </select>
+      <select
+        class="filterbar__select"
+        name="order"
+      >
+        <option
+          class="filterbar__optiontitle"
+          selected=""
+          value=""
+        >
+          Ordenar Por:
+        </option>
+        <option
+          class="filterbar__option"
+          value="Precio"
+        >
+          Precio
+        </option>
+        <option
+          class="filterbar__option"
+          value="Nombre"
+        >
+          Nombre
+        </option>
+        <option
+          class="filterbar__option"
+          value="Sección"
+        >
+          Sección
+        </option>
+      </select>
+    </form>
+  </div>
+</DocumentFragment>
+`;
