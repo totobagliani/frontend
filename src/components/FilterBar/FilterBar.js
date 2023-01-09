@@ -8,8 +8,7 @@ import {
   setFilter,
   setOrder
 } from '../../redux/actions/ui.action';
-import CustomSelectOrderBy from '../CustomSelect/CustomSelectOrderBy';
-import CustomSelectProductsSection from '../CustomSelect/CustomSelectProductsSection';
+import CustomSelect from '../CustomSelect/CustomSelect';
 
 export default function FilterBar() {
   const sections = Object.values(SECTIONS);
@@ -30,26 +29,28 @@ export default function FilterBar() {
   return (
     <div className={styles.filterbar}>
       <form className={styles.filterbar__form}>
-        <CustomSelectProductsSection
+        <CustomSelect
           selectProps={{
             selectName: 'product-section',
             selectTitle: ' Productos',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
             classOption: styles.filterbar__option,
-            optionValues: sections
+            optionValues: sections,
+            counterVisible: true
           }}
           handleChange={handleSetFilter}
         />
 
-        <CustomSelectOrderBy
+        <CustomSelect
           selectProps={{
             selectName: 'order',
             selectTitle: 'Ordenar Por',
             classSelect: styles.filterbar__select,
             classTitle: styles.filterbar__optiontitle,
             classOption: styles.filterbar__option,
-            optionValues: sorts
+            optionValues: sorts,
+            counterVisible: false
           }}
           handleChange={handleSetOrder}
         />

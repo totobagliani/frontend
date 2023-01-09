@@ -8,7 +8,7 @@ import { useForm } from '../../hooks/useForm';
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
 import { startAddProduct } from '../../redux/actions/products.action';
-import CustomSelectAddProduct from '../CustomSelect/CustomSelectAddProduct';
+import CustomSelect from '../CustomSelect/CustomSelect';
 
 export default function AddProduct() {
   const sections = Object.values(SECTIONS);
@@ -109,7 +109,7 @@ export default function AddProduct() {
             onChange={handleProductValueInputChange}
           />
 
-          <CustomSelectAddProduct
+          <CustomSelect
             selectProps={{
               selectName: 'section',
               selectTitle: 'Sección',
