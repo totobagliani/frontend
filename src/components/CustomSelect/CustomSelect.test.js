@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { SORT_OPTIONS } from '../../services/constants';
 import configureStore from '../../redux/store';
-import CustomSelect from './CustomSelectOrderBy';
+import CustomSelect from './CustomSelect';
 
 const initialState = {
   products: {
@@ -76,13 +76,11 @@ describe('Given the CustomSelect Component', () => {
       options: { name: 'product-order' }
     });
 
-    const optionItems = screen.getAllByRole('option', { value: 'Precio' });
-
-    // console.log(optionItems[1]); Is the option con value = price
+    const optionItems = screen.getAllByRole('option', { value: 'precio' });
 
     userEvent.selectOptions(selectItem, optionItems[1]);
     expect(handleMock).toHaveBeenCalled();
-    expect(optionItems[1].value).toBe('Precio');
+    expect(optionItems[1].value).toBe('precio');
     expect(optionItems[1].selected).toBe(true);
   });
 });

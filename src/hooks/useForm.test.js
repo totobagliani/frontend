@@ -1,11 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
 /* eslint-disable no-undef */
 import { renderHook, act } from '@testing-library/react';
 import { useForm } from './useForm';
 
 describe('Given the useForm hook', () => {
   const initialForm = {
-    name: 'Manuel Saez',
-    email: 'manu@manu.com'
+    name: 'Tomás Bagliani',
+    email: 'tomy@gmail.com'
   };
   test('should return the default values', () => {
     const { result } = renderHook(() => useForm(initialForm));
@@ -25,16 +27,16 @@ describe('Given the useForm hook', () => {
       handleInputChange({
         target: {
           name: 'email',
-          value: 'pepe@pepe.com'
+          value: 'toto@toto.com'
         }
       });
     });
 
     const [values] = result.current;
 
-    expect(values.email).toBe('pepe@pepe.com');
+    expect(values.email).toBe('toto@toto.com');
 
-    expect(values).toEqual({ ...initialForm, email: 'pepe@pepe.com' });
+    expect(values).toEqual({ ...initialForm, email: 'toto@toto.com' });
   });
   test('shouls reset the value of formulario', () => {
     const { result } = renderHook(() => useForm(initialForm));
@@ -44,7 +46,7 @@ describe('Given the useForm hook', () => {
       handleInputChange({
         target: {
           name: 'email',
-          value: 'pepe@pepe.com'
+          value: 'toto@toto.com'
         }
       });
       reset();
