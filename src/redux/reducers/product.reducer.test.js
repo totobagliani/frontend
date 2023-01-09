@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable comma-dangle */
 import { types } from '../actiontypes';
 import { productsReducer } from './product.reducer';

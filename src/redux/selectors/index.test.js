@@ -8,33 +8,6 @@ import {
 
 const mockData = require('../../services/mockproducts.json');
 
-/* const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-const mystate = {
-  products: {
-    products: mockData.products,
-    productAdded: {
-      productName: '',
-      description: '',
-      imageURL: '',
-      isFavourite: false,
-      price: 0,
-      section: ''
-    },
-    searchResults: {
-      itemsCount: 3,
-      searchTerm: 'algo'
-    }
-  },
-  ui: {
-    currentPage: 21,
-    currentFilter: 'cocina',
-    currentOrder: 'precio',
-    resultsVisible: true
-  }
-};
-let store = mockStore(mystate); */
-
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn()
