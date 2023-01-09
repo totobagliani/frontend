@@ -76,11 +76,11 @@ describe('Given the CustomSelect Component', () => {
       options: { name: 'product-order' }
     });
 
-    const optionItems = screen.getAllByRole('option', { value: 'precio' });
+    const optionItems = screen.getAllByRole('option', { value: 'Precio' });
 
     userEvent.selectOptions(selectItem, optionItems[1]);
     expect(handleMock).toHaveBeenCalled();
-    expect(optionItems[1].value).toBe('precio');
+    expect(optionItems[1].value).toBe('Precio');
     expect(optionItems[1].selected).toBe(true);
   });
 });
