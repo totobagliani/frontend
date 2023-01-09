@@ -5,7 +5,6 @@ export const useImgData = () => {
 
   const handleFileChange = ({ target }) => {
     if (target.files[0]) {
-      console.log(target.files);
       const reader = new FileReader();
       reader.addEventListener('load', () => {
         setimgFile(reader.result);
