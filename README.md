@@ -2,7 +2,7 @@
 
 Pequeña aplicación para crear productos y mostrarlos a modo de catálogo.
 Permite filtrar por secciones y ordenar por precio y nombre.
-Puedes verla en acción en
+Puedes verla en acción en https://8591c56d.flat101products.pages.dev/
 
 ### Instalación 🔧
 
