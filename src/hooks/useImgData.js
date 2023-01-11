@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export const useImgData = () => {
-  const [imgFile, setimgFile] = useState(false);
+  const [imgFile, setimgFile] = useState(null);
 
   const handleFileChange = ({ target }) => {
     if (target.files[0]) {
@@ -13,5 +13,9 @@ export const useImgData = () => {
     }
   };
 
-  return [imgFile, handleFileChange];
+  const resetImgFile = () => {
+    setimgFile(null);
+  };
+
+  return [imgFile, handleFileChange, resetImgFile];
 };

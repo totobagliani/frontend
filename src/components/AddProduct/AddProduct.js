@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable comma-dangle */
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ export default function AddProduct() {
 
   const fileSelectorRef = useRef();
 
-  const [imgFile, handleFileChange] = useImgData(false);
+  const [imgFile, handleFileChange, resetImgFile] = useImgData(false);
 
   const [formError, setFormError] = useState({
     productName: false,
@@ -77,6 +78,7 @@ export default function AddProduct() {
 
         dispatch(startAddProduct(imgFile, product));
         reset();
+        resetImgFile();
       }
     }
   };
